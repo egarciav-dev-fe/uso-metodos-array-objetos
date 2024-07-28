@@ -120,6 +120,25 @@ function joinConGuion (){
   registrosDental.innerHTML = recorreArregloDental;
 }
 
+/***
+ * 4. Imprimir un listado total de todos los pacientes que se atendieron en el centro médico. 
+Para esto, deberá unir todos los nombres de pacientes e imprimir uno por cada párrafo
+(3 Puntos). 
+ */
+document.getElementById("btnPacientesAtendidos").addEventListener('click',()=>{
+  let listaNombres = document.getElementById("pacientesAtendidos");
+  function pacientesAtendidosCM (){
+    let tresArreglosEnUno = [...dental,...radiologia,...traumatologia]
+    let nombrePacientes = tresArreglosEnUno.map(nombre =>{
+      return `<p>
+      ${nombre.paciente}
+      </p>`
+    }).join('')
+    
+    listaNombres.innerHTML = nombrePacientes;
+  }
+  pacientesAtendidosCM();
+})
 
 document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length - 1].paciente} - ${radiologia[radiologia.length - 1].prevision}.</p>`);
 document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length - 1].paciente} - ${traumatologia[traumatologia.length - 1].prevision}.</p>`);
