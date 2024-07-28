@@ -66,8 +66,22 @@ document.getElementById("agregarpacientes").addEventListener('click', () => {
 
 //Agregar código para el desafio 2 aquí
 
+console.log(radiologia)
+// eliminar primer elemento de arreglo radiologia
+function eliminarPrimerElemento() {
+  radiologia.shift()
+  console.log(radiologia)
 
+}
 
+// eliminar ultimo elemento de arreglo radiologia
+function eliminaUltimoElemento(){
+  radiologia.pop()
+  console.log(radiologia)
+
+}
+eliminarPrimerElemento();
+eliminaUltimoElemento();
 
 //Agregar código para el desafio 2 aquí
 
