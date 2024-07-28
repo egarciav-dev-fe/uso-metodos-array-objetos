@@ -45,7 +45,9 @@ function listaPacientesTraumatologia(traumatologia) {
   let registros = document.getElementById("traumatologia");
   registros.innerHTML = filasTablaTraumatologia;
 }
-
+/***
+ * 1. Agregar las siguientes horas al arreglo de Traumatología (2 Puntos):  
+ */
 document.getElementById("agregarpacientes").addEventListener('click', () => {
   let nuevosRegistros = [
     //Agregar horas al array de traumatologia
@@ -64,7 +66,9 @@ document.getElementById("agregarpacientes").addEventListener('click', () => {
 }
 )
 
-//Agregar código para el desafio 2 aquí
+/**
+ * 2. Eliminar el primer y último elemento del arreglo de Radiología (1 Punto).  
+ */ 
 
 console.log(radiologia)
 // eliminar primer elemento de arreglo radiologia
@@ -82,12 +86,33 @@ function eliminaUltimoElemento(){
 }
 eliminarPrimerElemento();
 eliminaUltimoElemento();
-
-//Agregar código para el desafio 2 aquí
-
 document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
+
+/***
+ * 3.Imprimir en la página HTML, mediante document.write y/o las funciones que estime
+conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo
+separando por un guión cada dato desplegado y cada fila de información debe estar
+separada por un párrafo. 
+*/
+
+joinConGuion(dental);
+
+function joinConGuion (){
+  let registrosDental = document.getElementById("dental")
+  let recorreArregloDental = dental.map(registro =>{
+    return `<p>${[
+      registro.hora,
+      registro.especialista,
+      registro.paciente,
+      registro.rut,
+      registro.prevision
+      ].join(' - ')}
+    </p>`
+  }).join('');
+  registrosDental.innerHTML = recorreArregloDental;
+}
 
 
 document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length - 1].paciente} - ${radiologia[radiologia.length - 1].prevision}.</p>`);
