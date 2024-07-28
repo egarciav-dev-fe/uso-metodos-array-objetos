@@ -70,22 +70,28 @@ document.getElementById("agregarpacientes").addEventListener('click', () => {
  * 2. Eliminar el primer y último elemento del arreglo de Radiología (1 Punto).  
  */ 
 
-console.log(radiologia)
-// eliminar primer elemento de arreglo radiologia
-function eliminarPrimerElemento() {
-  radiologia.shift()
-  console.log(radiologia)
 
-}
-
-// eliminar ultimo elemento de arreglo radiologia
-function eliminaUltimoElemento(){
-  radiologia.pop()
-  console.log(radiologia)
-
-}
-eliminarPrimerElemento();
-eliminaUltimoElemento();
+document.getElementById("primerElemento").addEventListener('click',()=>{
+  
+  // eliminar primer elemento de arreglo radiologia
+  function eliminarPrimerElemento() {
+    radiologia.shift()
+    console.log(radiologia)
+    
+  }
+  eliminarPrimerElemento();
+})
+document.getElementById("ultimoElemento").addEventListener('click',()=>{
+  
+  // eliminar ultimo elemento de arreglo radiologia
+  function eliminaUltimoElemento(){
+    radiologia.pop()
+    console.log(radiologia)
+  
+  }
+  eliminaUltimoElemento();
+  
+})
 document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
