@@ -140,6 +140,43 @@ document.getElementById("btnPacientesAtendidos").addEventListener('click',()=>{
   pacientesAtendidosCM();
 })
 
-document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length - 1].paciente} - ${radiologia[radiologia.length - 1].prevision}.</p>`);
-document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length - 1].paciente} - ${traumatologia[traumatologia.length - 1].prevision}.</p>`);
-document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length - 1].paciente} - ${dental[dental.length - 1].prevision}.</p>`);
+/**
+ * Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas
+de Dental (1 Punto). 
+ */
+document.getElementById("btnDentalIsapre").addEventListener('click', () =>{
+  let listaPacientesDentalIsapre = document.getElementById("dentalIsapre");
+  function filtroPacientesIsapre(){
+    let pacientesFiltrados = dental.filter(filtrado => filtrado.prevision ==='ISAPRE');
+    let pacientesDentalIsapre = pacientesFiltrados.map(nombrePaciente =>{
+      return `<p>
+      ${nombrePaciente.paciente} - ${nombrePaciente.prevision}
+      </p>`
+    }).join('')
+    listaPacientesDentalIsapre.innerHTML = pacientesDentalIsapre
+  }
+
+  filtroPacientesIsapre()
+})
+
+/**
+ * Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas médicas
+ de Traumatología (1 Punto). 
+ */
+document.getElementById("btnTraumatologiaFonasa").addEventListener('click', () =>{
+  let listaPacientesTraumatologiaFonasa = document.getElementById("traumatologiaFonasa");
+  function filtroPacientesFonasa(){
+    let pacientesFiltrados = traumatologia.filter(filtrado => filtrado.prevision === 'FONASA');
+    let pacientesTraumatologiaFonasa = pacientesFiltrados.map(nombrePaciente =>{
+      return `<p>
+      ${nombrePaciente.paciente} - ${nombrePaciente.prevision}
+      </p>`
+    }).join('')
+    listaPacientesTraumatologiaFonasa.innerHTML = pacientesTraumatologiaFonasa
+  }
+  filtroPacientesFonasa();
+})
+
+// document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length - 1].paciente} - ${radiologia[radiologia.length - 1].prevision}.</p>`);
+// document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length - 1].paciente} - ${traumatologia[traumatologia.length - 1].prevision}.</p>`);
+// document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length - 1].paciente} - ${dental[dental.length - 1].prevision}.</p>`);
